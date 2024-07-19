@@ -1,4 +1,4 @@
-from aio_easycodefpy import Codef, ServiceType
+from easycodefpy import Codef, ServiceType
 import uuid, json, copy, asyncio, datetime, sys
 
 # 요청 엔드포인트 설정
@@ -63,17 +63,17 @@ async def user_input():
             break
 
 
-async def main():
+def main():
     codef = Codef()
     codef.public_key = public_key
     codef.set_demo_client_info(client_id, client_secret)
 
     # 건강나이 알아보기 1차 요청
     print("\n[CODEF] 건강나이 알아보기 API 1차 요청부 | 요청 \n", health_age_parameter, '\n')
-    health_age_auth_response = await codef.request_product(health_age_endpoint, service_type, health_age_parameter)
+    health_age_auth_response = codef.request_product(health_age_endpoint, service_type, health_age_parameter)
 
     print("[CODEF] 검진대상 API 다건 요청부 | 요청 \n", examination_parameter, '\n')
-    async_task = asyncio.create_task(codef.request_product(examination_endpoint, service_type, examination_parameter))
+    codef.request_product(examination_endpoint, service_type, examination_parameter)
 
     # 건강나이 알아보기 1차 응답부
     print("[CODEF] 건강나이 알아보기 API 추가인증 응답부\n", health_age_auth_response + '\n')
