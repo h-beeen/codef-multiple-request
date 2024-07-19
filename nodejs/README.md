@@ -218,6 +218,24 @@
 
 ```
 
+### 비정상 응답 핸들링
+
+[CODEF] 비정상 응답 :g
+```json
+{
+  result: {
+    code: 'CF-12200',
+    extraMessage: '{userError:3351::0}',
+    message: '통신 연결 실패하였습니다. 네트워크 상태를 확인 후 재시도하시기 바랍니다. ',
+    transactionId: '669a0b6c28e6d955e3e9e693'
+  },
+  data: {},
+  key: '1973'
+} 
+```
+
+
+
 ### 100건 다건 요청 성공
 
 ```bash
